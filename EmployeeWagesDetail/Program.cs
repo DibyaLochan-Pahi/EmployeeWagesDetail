@@ -2,34 +2,32 @@
 
 namespace EmployeeWagesDetail
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            int isFullTime = 1;
-            int isHalfTime = 2;
             int empWagePerHour = 20;
-            int empWages = 0;
             int empHour = 0;
+            int empWage = 0;
             Random random = new Random();
             int empStatus = random.Next(0, 3);
-            if (empStatus == isFullTime)
+            switch (empStatus)
             {
-                Console.WriteLine("Employee is Present");
-                empHour = 8;
+                case 1:
+                    Console.WriteLine("Employee is Present");
+                    empHour = 8;
+                    break;
+                case 2:
+                    Console.WriteLine("Employee is Half Time");
+                    empHour = 4;
+                    break;
+                default:
+                    Console.WriteLine("Employee is absent");
+                    empHour = 0;
+                    break;
             }
-            else if (empStatus == isHalfTime)
-            {
-                Console.WriteLine("Employee is Half Time");
-                empHour = 4;
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-                empHour = 0;
-            }
-            empWages = empWagePerHour * empHour;
-            Console.WriteLine("Employee Wages is " + empWages);
+            empWage = empWagePerHour * empHour;
+            Console.WriteLine("The Employee Wage" + empWage);
         }
     }
 }
